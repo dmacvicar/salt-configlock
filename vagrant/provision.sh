@@ -1,7 +1,10 @@
 #!/bin/bash
 
 zypper -n ar -f http://download.opensuse.org/repositories/systemsmanagement:/saltstack/openSUSE_13.2/systemsmanagement:saltstack.repo
-zypper -n in --no-recommends salt-master salt-minion
+zypper -n ar -f http://download.opensuse.org/repositories/devel:/languages:/python/openSUSE_13.2/devel:languages:python.repo
+
+zypper -n --gpg-auto-import-keys in --no-recommends salt-master salt-minion
+zypper -n --gpg-auto-import-keys in --no-recommends python-certifi gcc python-devel libgit2-devel
 
 cat <<EOF > /etc/salt/minion.d/dev.conf
 master: localhost
