@@ -10,12 +10,12 @@ cat <<EOF > /etc/salt/minion.d/dev.conf
 master: localhost
 
 beacons:
-  configlock:
+  managedwatch:
     managed:
       lock: True
 
 module_dirs:
-  - /vagrant/vagrant/sls
+  - /vagrant
 EOF
 
 cat <<EOF > /etc/salt/master.d/dev.conf
