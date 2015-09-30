@@ -18,6 +18,12 @@ module_dirs:
   - /vagrant/vagrant/sls
 EOF
 
+cat <<EOF > /etc/salt/master.d/dev.conf
+file_roots:
+  base:
+    - /vagrant/vagrant/sls
+EOF
+
 rcsalt-master restart
 rcsalt-minion restart
 

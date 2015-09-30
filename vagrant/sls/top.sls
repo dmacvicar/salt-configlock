@@ -1,3 +1,3 @@
 base:
-  'piscolita.suse.de':
+  'configlock':
     -  test-policy 
