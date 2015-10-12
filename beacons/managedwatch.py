@@ -83,6 +83,13 @@ class EventHandler(pyinotify.ProcessEvent):
                 auto_add=True)
         self.notifier.start()
 
+    def process_IN_IGNORED(self, event):
+        # Re-init the watch after IN_IGNORED
+        log.debug("IN_IGNORED: re-init the watch for: %s" % event.pathname)
+        self.wm.add_watch(
+            event.pathname, pyinotify.IN_MODIFY | pyinotify.IN_DELETE_SELF,
+            auto_add=True)
+
     def process_default(self, event):
         # Does nothing, just to demonstrate how stuffs could be done
         # after having processed statistics.
