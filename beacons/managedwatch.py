@@ -38,7 +38,7 @@ class ManagedFile:
         if len(vals) != 1:
             log.warning('More than one sls for the id: %s' % self.id)
             return ""
-        if 'changes' in vals[0]:
+        if 'changes' in vals[0] and 'diff' in vals[0]['changes']:
             return vals[0]['changes']['diff']
         return ""
 
